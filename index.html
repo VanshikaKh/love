@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Sanjeev ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fff0f5;
+    color: #4a1c2f;
+    overflow-x: hidden;
+}
+
+/* ================= PASSWORD SCREEN ================= */
+
+#lockScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #c471ed);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.lock-box {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 30px;
+    padding: 45px 30px;
+    color: white;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: appear 1.2s ease;
+}
+
+.lock-heart {
+    font-size: 65px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.lock-box h1 {
+    margin: 15px 0 10px;
+    font-size: 35px;
+}
+
+.lock-box p {
+    margin-bottom: 25px;
+    opacity: .9;
+}
+
+.lock-box input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.lock-box button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #e84a75;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.lock-box button:hover {
+    transform: scale(1.04);
+}
+
+#error {
+    margin-top: 15px;
+    color: #fff;
+    display: none;
+}
+
+/* ================= MAIN WEBSITE ================= */
+
+#website {
+    display: none;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255,255,255,.8);
+    backdrop-filter: blur(15px);
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #e94d78;
+}
+
+nav a {
+    text-decoration: none;
+    color: #64243d;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #e94d78;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, #ffd6e3, transparent 40%),
+        radial-gradient(circle at bottom right, #e4c7ff, transparent 40%),
+        #fff0f5;
+}
+
+.hero-content {
+    max-width: 850px;
+    z-index: 2;
+}
+
+.small-title {
+    color: #e94d78;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(55px, 10vw, 110px);
+    color: #b52f58;
+    margin: 10px 0;
+}
+
+.hero h2 {
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 400;
+}
+
+.hero p {
+    margin: 25px auto;
+    max-width: 600px;
+    line-height: 1.8;
+    color: #704052;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 30px;
+    background: #e94d78;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(233,77,120,.3);
+    transition: .3s;
+}
+
+.hero-button:hover {
+    transform: translateY(-4px);
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: absolute;
+    color: rgba(233,77,120,.25);
+    font-size: 30px;
+    animation: float 8s linear infinite;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 1s; }
+.heart:nth-child(2) { left: 25%; animation-delay: 3s; }
+.heart:nth-child(3) { left: 70%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 85%; animation-delay: 5s; }
+
+/* SECTIONS */
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-family: Georgia, serif;
+    font-size: 45px;
+    color: #b52f58;
+}
+
+.section-title p {
+    margin-top: 10px;
+    color: #805267;
+}
+
+/* ABOUT */
+
+.about {
+    background: white;
+}
+
+.about-box {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    line-height: 2;
+    font-size: 17px;
+}
+
+/* PHOTO GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.photo {
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    transition: .4s;
+}
+
+.photo:hover {
+    transform: translateY(-8px) rotate(1deg);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* MUSIC */
+
+.music-section {
+    background: linear-gradient(135deg, #ffe2eb, #f0ddff);
+}
+
+.music-box {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+    text-align: center;
+}
+
+.music-box iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+/* LOVE CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card .emoji {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #c03960;
+    margin-bottom: 10px;
+}
+
+/* TIMELINE */
+
+.timeline {
+    max-width: 800px;
+    margin: auto;
+    border-left: 3px solid #e94d78;
+    padding-left: 30px;
+}
+
+.memory {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.memory::before {
+    content: "❤️";
+    position: absolute;
+    left: -48px;
+    top: 0;
+}
+
+.memory h3 {
+    color: #b52f58;
+    margin-bottom: 8px;
+}
+
+.memory p {
+    line-height: 1.7;
+}
+
+/* COUNTER */
+
+.counter-section {
+    text-align: center;
+    background: #54233a;
+    color: white;
+}
+
+.counter-section h2 {
+    font-family: Georgia, serif;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: clamp(25px, 5vw, 50px);
+    font-weight: bold;
+    color: #ffb5c9;
+}
+
+/* LETTER */
+
+.letter {
+    max-width: 750px;
+    margin: auto;
+    background: #fffaf0;
+    padding: 45px;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+    line-height: 2;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    position: relative;
+}
+
+.letter::before {
+    content: "💌";
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 30px;
+}
+
+/* SURPRISE */
+
+.surprise {
+    text-align: center;
+    background: linear-gradient(135deg, #ff758c, #c471ed);
+    color: white;
+}
+
+.surprise h2 {
+    font-size: 45px;
+    font-family: Georgia, serif;
+}
+
+.surprise button {
+    margin-top: 25px;
+    padding: 16px 35px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #d94772;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#secretMessage {
+    display: none;
+    margin: 30px auto 0;
+    max-width: 650px;
+    font-size: 23px;
+    line-height: 1.8;
+    animation: appear 1s ease;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: #341521;
+    color: #ffd5e1;
+}
+
+/* ANIMATIONS */
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    nav {
+        padding: 12px 5%;
+    }
+
+    nav .links {
+        display: none;
+    }
+
+    section {
+        padding: 70px 6%;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .letter {
+        padding: 30px 22px;
+    }
+
+    .music-box iframe {
+        height: 220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= PASSWORD ================= -->
+
+<div id="lockScreen">
+
+    <div class="lock-box">
+
+        <div class="lock-heart">❤️</div>
+
+        <h1>For Sanjeev</h1>
+
+        <p>
+            This little corner of the internet<br>
+            belongs only to us. 💕
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter our secret password"
+        >
+
+        <button onclick="unlock()">
+            Unlock My Heart ❤️
+        </button>
+
+        <div id="error">
+            Hmm... that's not our secret password 🥺
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= WEBSITE ================= -->
+
+<div id="website">
+
+<nav>
+
+    <div class="logo">
+        S ❤️ V
+    </div>
+
+    <div class="links">
+        <a href="#home">Home</a>
+        <a href="#story">Our Story</a>
+        <a href="#gallery">Photos</a>
+        <a href="#music">Music</a>
+        <a href="#letter">Letter</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="heart">❤️</div>
+    <div class="heart">💗</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            A little website made with a lot of love
+        </div>
+
+        <h1>MY BABU</h1>
+
+        <h2>My favourite person in the whole world ❤️</h2>
+
+        <p>
+            I made this little place on the internet
+            just for you. Every picture, every memory,
+            every song and every word here has a tiny
+            piece of my heart in it.
+        </p>
+
+        <a href="#story" class="hero-button">
+            Enter Our Story 💕
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- OUR STORY -->
+
+<section class="about" id="story">
+
+    <div class="section-title">
+
+        <h2>Our Little Story</h2>
+
+        <p>
+            Because some stories deserve their own website.
+        </p>
+
+    </div>
+
+    <div class="about-box">
+
+        <p>
+            Dear Baby,
+        </p>
+
+        <br>
+
+        <p>
+            Somewhere between ordinary days and unexpected
+            moments, you became someone incredibly special
+            to me.
+        </p>
+
+        <br>
+
+        <p>
+            This website is a tiny collection of the moments,
+            feelings and memories that make our story ours.
+        </p>
+
+        <br>
+
+        <p>
+            And honestly... I could keep writing about you
+            forever. ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-title">
+
+        <h2>Our Memories 📸</h2>
+
+    </div>
+
+    <div class="gallery">
+
+        <div class="photo">
+            <img src="photo1.jpeg" alt="Our memory">
+        </div>
+
+        <div class="photo">
+            <img src="photo2.jpeg" alt="Our memory">
+        </div>
+
+        <div class="photo">
+            <img src="photo3.jpeg" alt="Our memory">
+        </div>
+
+        <div class="photo">
+            <img src="photo4.jpeg" alt="Our memory">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section class="music-section" id="music">
+
+    <div class="section-title">
+
+        <h2>Our Song 🎵</h2>
+
+        <p>
+            Put the song that reminds you of him here.
+        </p>
+
+    </div>
+
+    <div class="music-box">
+
+        <h3>
+            🎧 A song that feels like us
+        </h3>
+
+        <!-- REPLACE VIDEO ID -->
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/mjIENvmFpj8?si=GewiCpNToOnprnqK" 
+         title="OUR SONG" frameborder="0" 
+         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+    </div>
+
+</section>
+
+
+<!-- WHY I LOVE YOU -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Reasons I Love You ❤️</h2>
+
+        <p>
+            And yes... there are many more.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="emoji">🥰</div>
+            <h3>Your Smile</h3>
+            <p>
+                Somehow your smile can make an ordinary
+                day feel special.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🫶</div>
+            <h3>Your Presence</h3>
+            <p>
+                Everything feels a little better when
+                you're around.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">😂</div>
+            <h3>Your Craziness</h3>
+            <p>
+                Life would definitely be less fun without
+                your weird little moments.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">❤️</div>
+            <h3>Just You</h3>
+            <p>
+                I don't need a complicated reason.
+                I simply love you for being you.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TIMELINE -->
+
+<section class="about">
+
+    <div class="section-title">
+
+        <h2>Our Memories 🕰️</h2>
+
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="memory">
+
+            <h3>✨ The Beginning</h3>
+
+            <p>
+               Is when I saw you for the very first time and I felt like I was home.
+                Aap jb stairs se niche aaye the vo din m kbhi nhi bhul sktii
+        
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <h3>💕 Our First Special Memory</h3>
+
+            <p>
+                hr ek din jo hum spend krte h sath m mere liye vo hi special hota h
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <h3>🌸 A Day I'll Never Forget</h3>
+
+            <p>
+               jis din maine aapko propose kra tha that day will always have a special place in my heart.
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <h3>💖 Today</h3>
+
+            <p>
+                Hum bhot ldte h i know but hmara pyar hme firse vapis le aata h and even much more stronger. 
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RELATIONSHIP TIMER -->
+
+<section class="counter-section">
+
+    <h2>Time With You ❤️</h2>
+
+    <p>
+        Every second with you is a second I want to remember.
+    </p>
+
+    <br>
+
+    <div id="timer">
+        0 Days 0 Hours 0 Minutes 0 Seconds
+    </div>
+
+</section>
+
+
+<!-- LOVE LETTER -->
+
+<section id="letter">
+
+    <div class="section-title">
+
+        <h2>A Letter For You 💌</h2>
+
+    </div>
+
+    <div class="letter">
+
+        <p>
+          Happy Boyfriend’s Day to the best boyfriend in the world!!🌍 
+        </p>
+
+        <br>
+
+        <p>
+           Ye sirf kehne ki baat nhi h indeed you are the best 🌟 
+           Aapke sath rehkr hr chiz easy lgti haii 
+           You are my home in this cruel world 🏠
+           I am so proud of you and I can proudly say that you are MY MAN! 🩷🫀
+
+        </p>
+
+        <br>
+
+        <p>
+            I really don’t know how you handle me so well 
+            Even after aapki life m itni chize chlri hoti haii fir bhi aap mereko smbhal lete ho m kitna stress deti hu fir bhii kbhi preshan nhi hote💍
+            You are truly a gentleman and my safe place 🌸
+
+
+
+        <br>
+
+        <p>
+          Thank you for everything you do for me, for always being there for me no matter what, for always protecting me, for always caring for me and for loving me so much💕💎
+          I am thankful to god that you came into my life and made my life so much better 😘
+          I love you so much baby ❤️🧿
+        </p>
+
+        <br>
+
+        <p>
+           My love 💋
+           My Aaluu 🫂
+        </p>
+
+        <br>
+
+        <p>
+            With all my love,
+            <br>
+            <strong>Your Girl ❤️</strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SURPRISE -->
+
+<section class="surprise">
+
+    <h2>One Last Surprise 🎁</h2>
+
+    <p>
+        Sanjeev, there's something I want you to see...
+    </p>
+
+    <button onclick="showSecret()">
+        Open My Secret Message 💌
+    </button>
+
+    <div id="secretMessage">
+
+        You are one of the most beautiful chapters
+        of my life. ❤️
+
+        <br><br>
+
+        And if I could choose again...
+
+        <br>
+
+        <strong>
+            I'd still choose you. 💕
+        </strong>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    Made with infinite love ❤️
+
+    <br><br>
+
+    For Sanjeev ✨
+
+</footer>
+
+</div>
+
+
+<script>
+
+/* ================= PASSWORD ================= */
+
+function unlock() {
+
+    const password =
+        document.getElementById("password").value;
+
+    /*
+       CHANGE YOUR PASSWORD HERE
+    */
+
+    const correctPassword = "iloveyou";
+
+    if (password === correctPassword) {
+
+        document.getElementById("lockScreen").style.display =
+            "none";
+
+        document.getElementById("website").style.display =
+            "block";
+
+    } else {
+
+        document.getElementById("error").style.display =
+            "block";
+
+    }
+}
+
+
+/* ENTER KEY */
+
+document.getElementById("password").addEventListener(
+    "keypress",
+    function(event) {
+
+        if (event.key === "Enter") {
+            unlock();
+        }
+
+    }
+);
+
+
+/* ================= SURPRISE ================= */
+
+function showSecret() {
+
+    const message =
+        document.getElementById("secretMessage");
+
+    message.style.display = "block";
+
+    createHearts();
+
+}
+
+
+/* ================= HEART EFFECT ================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 25; i++) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.innerHTML = "❤️";
+
+        heart.style.position = "fixed";
+        heart.style.left =
+            Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize =
+            Math.random() * 25 + 15 + "px";
+        heart.style.zIndex = "99999";
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        const animation =
+            heart.animate(
+                [
+                    {
+                        transform: "translateY(0) rotate(0deg)",
+                        opacity: 1
+                    },
+                    {
+                        transform:
+                            "translateY(-110vh) rotate(360deg)",
+                        opacity: 0
+                    }
+                ],
+                {
+                    duration:
+                        Math.random() * 3000 + 3000,
+                    easing: "ease-out"
+                }
+            );
+
+        animation.onfinish = () => {
+            heart.remove();
+        };
+
+    }
+
+}
+
+
+/* ================= RELATIONSHIP TIMER ================= */
+
+
+const startDate =
+    new Date("2025-05-16T00:00:00");
+
+function updateTimer() {
+
+    const now = new Date();
+
+    const difference =
+        now - startDate;
+
+    if (difference < 0) {
+
+        document.getElementById("timer").innerHTML =
+            "Our story is about to begin ❤️";
+
+        return;
+    }
+
+    const seconds =
+        Math.floor(difference / 1000) % 60;
+
+    const minutes =
+        Math.floor(difference / (1000 * 60)) % 60;
+
+    const hours =
+        Math.floor(difference / (1000 * 60 * 60)) % 24;
+
+    const days =
+        Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    document.getElementById("timer").innerHTML =
+        `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
+
+}
+
+setInterval(updateTimer, 1000);
+
+updateTimer();
+
+</script>
+
+</body>
+</html>
